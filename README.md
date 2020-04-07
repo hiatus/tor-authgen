@@ -5,7 +5,7 @@ Small script to generate server/client authentication files for version 3 onion 
 Dependencies
 ------------
 - **openssl**: provides `openssl`
-- **coreutils**: provides `tr`, `base32`, `base64`
+- **coreutils**: provides `tr`, `base32` and `base64`
 
 Usage
 -----
