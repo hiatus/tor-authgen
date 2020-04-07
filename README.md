@@ -2,6 +2,11 @@ tor-authgen
 ======
 Small script to generate server/client authentication files for version 3 onion services
 
+Dependencies
+------------
+- **openssl**: provides `openssl`
+- **coreutils**: provides `tr`, `base32`, `base64`
+
 Usage
 -----
 - Clone the repository
