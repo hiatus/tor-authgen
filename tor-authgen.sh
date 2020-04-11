@@ -1,15 +1,18 @@
 #!/bin/bash
 
-usage() {
+usage()
+{
 	echo "$(basename ${0%.sh}) [v3 onion address]"
 	exit ${1:-0}
 }
 
-gen_prv_key() {
+gen_prv_key()
+{
 	openssl genpkey -algorithm x25519 | grep -v PRIVATE 2> /dev/null
 }
 
-gen_pub_key() {
+gen_pub_key()
+{
 	{
 		echo -e "-----BEGIN PRIVATE KEY-----"
 		echo -e "${1}"
