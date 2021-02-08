@@ -14,9 +14,9 @@ gen_prv_key()
 gen_pub_key()
 {
 	{
-		echo -e "-----BEGIN PRIVATE KEY-----"
-		echo -e "${1}"
-		echo -e "-----END PRIVATE KEY-----"
+		echo    "-----BEGIN PRIVATE KEY-----"
+		echo -e "$1"
+		echo    "-----END PRIVATE KEY-----"
 	} |
 
 	openssl pkey -pubout -outform PEM | grep -v PUBLIC  2> /dev/null
