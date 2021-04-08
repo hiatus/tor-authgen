@@ -1,20 +1,15 @@
 tor-authgen
 ======
-Small script to generate server/client authentication files for version 3 onion services
-
-Dependencies
-------------
-- **openssl**: provides `openssl`
-- **coreutils**: provides `tr`, `base32` and `base64`
+A small script to generate server/client authentication files for version 3 onion services.
 
 Usage
 -----
-- Clone the repository
+- Clone the repository.
 ```
 user@host:~$ git clone https://github.com/hiatus/tor-authgen.git
 ```
 
-- Run the script with a version 3 onion address as argument
+- Run the script with a version 3 onion address as argument.
 ```
 user@host:~$ cd tor-authgen && chmod +x tor-authgen.sh
 user@host:~/tor-authgen$ ./tor-authgen.sh igdi6j6vj1unffe1hpcmywf3qjs1qdv47l8m4llf756rpxwq8zq0lgb5.onion
@@ -24,7 +19,7 @@ user@host:~/tor-authgen$ ./tor-authgen.sh igdi6j6vj1unffe1hpcmywf3qjs1qdv47l8m4l
 [+] Check the working directory for .auth and .auth_private files
 ```
 
-- Check the working directory for the generated files
+- Check the working directory for the generated files.
 ```
 user@host:~/tor-authgen$ ls
 igdi6j6vj1unffe1hpcmywf3qjs1qdv47l8m4llf756rpxwq8zq0lgb5.auth          README.md
