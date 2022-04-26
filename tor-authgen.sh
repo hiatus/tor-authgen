@@ -44,7 +44,7 @@ pub=$(gen_pub_key "$prv")
 
 if [[ -z $prv || -z $pub ]]; then
 	echo '[!] Failed to generate x25519 key pair'
-	exit 3
+	exit 2
 fi
 
 echo "Public key:  ${pub}"
