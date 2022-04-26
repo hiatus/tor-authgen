@@ -13,8 +13,8 @@ user@host:~$ git clone https://github.com/hiatus/tor-authgen.git
 ```
 user@host:~$ cd tor-authgen && chmod +x tor-authgen.sh
 user@host:~/tor-authgen$ ./tor-authgen.sh igdi6j6vj1unffe1hpcmywf3qjs1qdv47l8m4llf756rpxwq8zq0lgb5.onion
-[*] Public key:  MCowBQYDK2VuAyEAfmjOz0IPoeR9StuiAzrQ0PFt3DMpL9txYVqeLDSDhUQ=
-[*] Private key: MC4CAQAwBQYDK2VuBCIEILhP8T4H/PhnlzqIK2Al3qxgmREiC7FipUTybTx8/DFA
+Public key:  MCowBQYDK2VuAyEAfmjOz0IPoeR9StuiAzrQ0PFt3DMpL9txYVqeLDSDhUQ=
+Private key: MC4CAQAwBQYDK2VuBCIEILhP8T4H/PhnlzqIK2Al3qxgmREiC7FipUTybTx8/DFA
 
 [+] Check the working directory for .auth and .auth_private files
 ```
