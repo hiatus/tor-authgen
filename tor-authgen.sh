@@ -13,12 +13,7 @@ gen_prv_key()
 
 gen_pub_key()
 {
-	{
-		echo    "-----BEGIN PRIVATE KEY-----"
-		echo -e "$1"
-		echo    "-----END PRIVATE KEY-----"
-	} |
-
+	echo -e "-----BEGIN PRIVATE KEY-----\n${1}-----END PRIVATE KEY-----" |
 	openssl pkey -pubout -outform PEM | grep -v PUBLIC  2> /dev/null
 }
 
@@ -31,7 +26,8 @@ if ! hash tr base{32,64} openssl 2> /dev/null; then
 		hash tr base{32,64} 2> /dev/null || echo -n 'coreutils'
 	)
 
-	usage 0 "Unmet dependencies: $deps"
+	echo "[-] Unmet dependencies: ${deps}"
+	exit 0
 fi
 
 [[ ${#*} -eq 0 || "${*}" =~ -(h|-help) ]] && usage
