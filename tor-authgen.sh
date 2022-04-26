@@ -47,8 +47,8 @@ if [[ -z $prv || -z $pub ]]; then
 	exit 3
 fi
 
-echo "[*] Public key:  ${pub}"
-echo "[*] Private key: ${prv}"
+echo "Public key:  ${pub}"
+echo "Private key: ${prv}"
 
 prv_part=$(base64 -d <<< "$prv" | tail --bytes 32 | base32 -w 0 | tr -d '=')
 pub_part=$(base64 -d <<< "$pub" | tail --bytes 32 | base32 -w 0 | tr -d '=')
