@@ -3,7 +3,6 @@
 usage()
 {
 	echo "$(basename ${0%.sh}) [v3 onion address]"
-	exit ${1:-0}
 }
 
 gen_prv_key()
@@ -30,10 +29,13 @@ if ! hash tr base{32,64} openssl 2> /dev/null; then
 	exit 0
 fi
 
-[[ ${#*} -eq 0 || "${*}" =~ -(h|-help) ]] && usage
+if [[ ${#*} -eq 0 || "${*}" =~ -(h|-help) ]]; then
+	usage
+	exit
+fi
 
 if ! [[ "$onion" =~ ^[a-z0-9]{56}$ ]] ; then
-	echo '[!] Invalid version 3 onion address'
+	echo -e '[!] Invalid version 3 onion address'
 	exit 1
 fi
 
