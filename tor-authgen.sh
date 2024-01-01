@@ -5,15 +5,19 @@ usage()
 	echo "$(basename ${0%.sh}) [v3 onion address]"
 }
 
+clean_key()
+{
+	grep -ve 'PRIVATE' -e 'PUBLIC' <<< "$1"
+}
+
 gen_prv_key()
 {
-	openssl genpkey -algorithm x25519 | grep -v PRIVATE 2> /dev/null
+	openssl genpkey -algorithm x25519 2> /dev/null
 }
 
 gen_pub_key()
 {
-	echo -e "-----BEGIN PRIVATE KEY-----\n${1}-----END PRIVATE KEY-----" |
-	openssl pkey -pubout -outform PEM | grep -v PUBLIC  2> /dev/null
+	openssl pkey -pubout -outform PEM <<< "$1" 2> /dev/null
 }
 
 
@@ -39,13 +43,16 @@ if ! [[ "$onion" =~ ^[a-z0-9]{56}$ ]] ; then
 	exit 1
 fi
 
-prv=$(gen_prv_key)
-pub=$(gen_pub_key "$prv")
+prv="$(gen_prv_key)"
+pub="$(gen_pub_key "$prv")"
 
 if [[ -z $prv || -z $pub ]]; then
 	echo '[!] Failed to generate x25519 key pair'
 	exit 2
 fi
+
+prv="$(clean_key "$prv")"
+pub="$(clean_key "$pub")"
 
 echo "Public key:  ${pub}"
 echo "Private key: ${prv}"
